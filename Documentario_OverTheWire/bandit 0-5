@@ -1,0 +1,110 @@
+OverTheWire - bandit. 26/10/2025
+
+livelli OverTheWire dal 0 -> 5.
+
+l'obbiettivo:
+Per ogni livello l’obiettivo era trovare la password / flag che permette di accedere al livello successivo.
+
+#ambiente utilizzato
+
+- virtualbox Kali Linux.
+- terminale (ssh).
+- Tool usati: ssh, ls, cd, cat, find, grep, du.
+- circa 1.5h.
+
+#comandi principali:
+Comandi che ho usato più frequentemente durante i livelli:
+
+ssh user@host -p 2220 → connessione alla macchina Bandit
+
+ls, ls -la → elencare file e mostrare file nascosti/permessi
+
+cd → cambiare directory
+
+pwd → mostrare la directory corrente
+
+cat <file> → leggere contenuto file
+
+cat ./- oppure cat -- - → leggere file con nome speciale -
+
+find, grep → ricerca ricorsiva e ricerca per contenuto
+
+du → capire dimensione in byte di file/directory
+
+#procedimento dei livelli:
+
+Livello 0 → 1
+
+Cosa ho fatto:
+
+Connessione via SSH:
+ssh bandit0@bandit.labs.overthewire.org -p 2220 (password iniziale: bandit0)
+
+Elencati i file: ls -la
+
+Letto il file readme con cat readme e ottenuta la password per il livello successivo.
+
+Tecniche usate: comandi base della shell (ls, cat).
+Flag trovato: ....
+
+Livello 1 → 2
+
+Cosa ho fatto:
+
+Connesso come bandit1.
+
+ls -la per vedere i file presenti.
+
+Ho notato un file con nome particolare (un -) e l’ho letto con: cat ./- (o cat -- -).
+
+Tecniche usate: gestione di file con nomi speciali; uso di ./- per specificare file nella directory corrente.
+Flag trovato: ....
+
+Livello 2 → 3
+
+Cosa ho fatto:
+
+Listato i file con ls -la.
+
+Ho identificato un file il cui nome conteneva spazi e caratteri particolari; ho usato l’escape dei caratteri con backslash o puntando esplicitamente al file con cat ./nome\ con\ spazi.
+
+Tecniche usate: gestione di nomi file con spazi e caratteri speciali.
+Flag trovato: ....
+
+Livello 3 → 4
+
+Cosa ho fatto:
+
+Usato pwd, ls, cd per navigare fino alla directory inhere.
+
+Usato ls -la per vedere file nascosti; letto il file ...Hiding-From-You con cat.
+
+Tecniche usate: ricerca e lettura di file nascosti.
+Flag trovato: ....
+
+Livello 4 → 5
+
+Cosa ho fatto:
+
+Attività simile a prima: ls, cd, cat per individuare il file contenente la password.
+
+Tecniche usate: esplorazione e lettura file standard.
+Flag trovato: ....
+
+Livello 5 → 6
+
+Cosa ho fatto:
+
+Inizialmente indeciso su quale approccio prendere, ho esaminato i file e i comandi disponibili.
+
+Ho usato du per analizzare le dimensioni dei file e identificare file di grandi dimensioni che potevano contenere la password.
+
+Ho quindi esplorato il file individuato (eventualmente con strings o cat a seconda del tipo) e trovato la password per il livello successivo.
+
+Tecniche usate: analisi dimensionale (du) per trovare file sospetti, uso di strings se file non testuali.
+Flag trovato: ....
+
+
+pensiero:
+challenge carine, utili per capire come muoversi nel terminale e come usare comandi molto utili e fondamentali. Mi sono divertito parecchio.
+
